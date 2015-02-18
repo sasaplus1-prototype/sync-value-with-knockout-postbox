@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta charset="utf-8">
+  <title>synchronize value with knockout-postbox</title>
+  <style>
+    .area {
+      width: 200px;
+    }
+    .tab-area:after {
+      content: "";
+      clear: both;
+      display: block;
+    }
+    .tab {
+      float: left;
+      border: 1px solid #999;
+      border-bottom: 0;
+      border-radius: 3px 3px 0 0;
+    }
+    .tab a {
+      padding: 2px 5px;
+      text-decoration: none;
+    }
+    .contents-area {
+      border: 1px solid #999;
+      padding: 5px;
+    }
+
+    .active {
+      background-color: #ddf;
+    }
+  </style>
+</head>
+<body>
+  <div class="area">
+    <div class="tab-area">
+      <div class="tab tab1" data-bind="css: { active: tab.activeTab() === 'tab1' }">
+        <a href="#" data-tab="tab1" data-bind="click: tab.clickTab.bind(null, $element)">tab1</a>
+      </div>
+      <div class="tab tab2" data-bind="css: { active: tab.activeTab() === 'tab2' }">
+        <a href="#" data-tab="tab2" data-bind="click: tab.clickTab.bind(null, $element)">tab2</a>
+      </div>
+    </div>
+    <div class="contents-area">
+      <div class="contents contents1" data-bind="visible: contents1.visible">
+        contents1
+        contents1
+        contents1
+        contents1
+      </div>
+      <div class="contents contents2" style="display: none" data-bind="visible: contents2.visible">
+        contents2
+        contents2
+        contents2
+        contents2
+      </div>
+    </div>
+  </div>
+  <script src="knockout-3.2.0.js"></script>
+  <script src="knockout-postbox.min.js"></script>
+  <script src="index.js"></script>
+</body>
+</html>
